@@ -1,0 +1,30 @@
+name: Sync with Upstream
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # 每天运行一次，你可以根据需要调整频率
+  workflow_dispatch:    # 手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config user.name "yimo0871"
+          git config user.email "42022883@qq.com"
+
+      - name: Add upstream repository
+        run: |
+          git remote add upstream https://github.com/cmangos/wotlk-db.git
+          git fetch upstream
+
+      - name: Merge upstream changes
+        run: |
+          git checkout master
+          git merge upstream/master --allow-unrelated-histories  # 如果需要的话，添加 --allow-unrelated-histories 选项
+          git push origin master
