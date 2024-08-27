@@ -14,19 +14,19 @@ INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, f
 (20648,8,13225,0,0,0,0,'');
 
 -- q.13258 'Opportunity' - H
--- Opens after one of them 2 completed q.13224 or q.12899
+-- Opens after q.13224 & q.12899 - rewarded
 UPDATE quest_template SET RequiredCondition = 20650 WHERE entry IN (13258);
 DELETE FROM conditions WHERE condition_entry BETWEEN 20649 AND 20650;
 INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, flags, comments) VALUES
 (20649,8,12899,0,0,0,0,''),
-(20650,-2,20649,20647,0,0,0,'');
+(20650,-1,20649,20647,0,0,0,'');
 -- q.13386 'Exploiting an Opening' - A
--- Opens after one of them 2 completed q.13225 or q.12898
+-- Opens after q.13225 & q.12898 - rewarded
 UPDATE quest_template SET RequiredCondition = 20651 WHERE entry IN (13386);
 DELETE FROM conditions WHERE condition_entry IN (20506,20651);
 INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, flags, comments) VALUES
 (20506,8,12898,0,0,0,0,''),
-(20651,-2,20648,20506,0,0,0,'');
+(20651,-1,20648,20506,0,0,0,'');
 
 -- q.13264 'That's Abominable!' - H
 -- req. q.13237 finished first.
@@ -113,19 +113,19 @@ INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, f
 (20663,8,13332,0,0,0,0,'');
 
 -- q.13312 'The Ironwall Rampart' - H
--- Opens after one of them 2 completed q.13306 or q.13367
+-- Opens after completed q.13306 & q.13367
 UPDATE quest_template SET RequiredCondition = 20665 WHERE entry IN (13312);
 DELETE FROM conditions WHERE condition_entry BETWEEN 20664 AND 20665;
 INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, flags, comments) VALUES
 (20664,8,13367,0,0,0,0,''),
-(20665,-2,20664,20662,0,0,0,'');
+(20665,-1,20664,20662,0,0,0,'');
 -- q.13337 'The Ironwall Rampart' - A
--- Opens after one of them 2 completed q.13332 or q.13346
+-- Opens after completed q.13332 q.13346
 UPDATE quest_template SET RequiredCondition = 20667 WHERE entry IN (13337);
 DELETE FROM conditions WHERE condition_entry BETWEEN 20666 AND 20667;
 INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, flags, comments) VALUES
 (20666,8,13346,0,0,0,0,''),
-(20667,-2,20666,20663,0,0,0,'');
+(20667,-1,20666,20663,0,0,0,'');
 
 -- q.13316 'The Guardians of Corp'rethar' - H
 -- req. q.13329 finished first.
@@ -144,7 +144,7 @@ INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, f
 -- req. q.13329 finished first.
 UPDATE quest_template SET RequiredCondition = 20668 WHERE entry IN (13328);
 -- q.13339 'Shatter the Shards' - A
--- req. q.13329 finished first.
+-- req. q.13335 finished first.
 UPDATE quest_template SET RequiredCondition = 20669 WHERE entry IN (13339);
 
 -- q.13329 'Before the Gate of Horror' - H
@@ -155,9 +155,9 @@ INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, f
 (20670,8,13307,0,0,0,0,''),
 (20671,8,13312,0,0,0,0,''),
 (20672,-1,20671,20670,0,0,0,'');
--- q.13329 'Before the Gate of Horror' - A
+-- q.13335 'Before the Gate of Horror' - A
 -- Opens after q.13334 & q.13337 completed
-UPDATE quest_template SET RequiredCondition = 20675 WHERE entry IN (13329);
+UPDATE quest_template SET RequiredCondition = 20675 WHERE entry IN (13335);
 DELETE FROM conditions WHERE condition_entry BETWEEN 20673 AND 20675;
 INSERT INTO conditions (condition_entry, type, value1, value2, value3, value4, flags, comments) VALUES
 (20673,8,13334,0,0,0,0,''),
